@@ -90,7 +90,7 @@
 
 /* Custom gradient background with background image */
 .portfolio-gradient {
-  background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 25%, #ec4899 50%, #3b82f6 75%, #1e1b4b 100%);
+  background-image: linear-gradient(105.9deg, rgba(0,122,184,1) 24.4%, rgba(46,0,184,0.88) 80.5%);
   background-size: 400% 400%;
   animation: gradientShift 10s ease infinite;
   position: relative;
