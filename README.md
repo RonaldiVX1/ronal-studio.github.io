@@ -1,73 +1,37 @@
-# Welcome to your Lovable project
 
-## Project info
+# 🌐 Ronal Studio – Personal Website
 
-**URL**: https://lovable.dev/projects/9e8adcba-196f-4cc4-b459-9cf033157824
+Selamat datang di repository resmi untuk website portofolio pribadi saya, **Ronaldi** – seorang Mobile Developer & UI/UX Designer.
 
-## How can I edit this code?
+Website ini dibangun sebagai representasi profesional saya secara online, tempat saya berbagi informasi tentang latar belakang, keterampilan, proyek, dan kontak saya.
 
-There are several ways of editing your application.
+## 🔗 Live Website
 
-**Use Lovable**
+👉 [https://ronal-studio.github.io](https://ronal-studio.github.io)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9e8adcba-196f-4cc4-b459-9cf033157824) and start prompting.
+## 📁 Struktur Proyek
 
-Changes made via Lovable will be committed automatically to this repo.
+├── index.html # Halaman utama
+├── assets/ # File gambar, ikon, dan media lainnya
+├── css/ # File stylesheet (style.css, dll)
+├── js/ # JavaScript untuk interaksi
+├── .nojekyll # Untuk menonaktifkan Jekyll di GitHub Pages
+└── README.md # Dokumentasi proyek
 
-**Use your preferred IDE**
+markdown
+Copy
+Edit
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Teknologi yang Digunakan
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- HTML5
+- CSS3
+- JavaScript (vanilla)
+- GitHub Pages (untuk deployment)
 
-Follow these steps:
+## 🚀 Cara Menjalankan Lokal
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/9e8adcba-196f-4cc4-b459-9cf033157824) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. Clone repository ini:
+   ```bash
+   git clone https://github.com/RonaldiVX1/ronal-studio.github.io.git
+   cd ronal-studio.github.io
