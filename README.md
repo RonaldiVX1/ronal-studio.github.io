@@ -9,19 +9,6 @@ Website ini dibangun sebagai representasi profesional saya secara online, tempat
 
 👉 [https://ronal-studio.github.io](https://ronal-studio.github.io)
 
-## 📁 Struktur Proyek
-
-├── index.html # Halaman utama
-├── assets/ # File gambar, ikon, dan media lainnya
-├── css/ # File stylesheet (style.css, dll)
-├── js/ # JavaScript untuk interaksi
-├── .nojekyll # Untuk menonaktifkan Jekyll di GitHub Pages
-└── README.md # Dokumentasi proyek
-
-markdown
-Copy
-Edit
-
 ## 🛠️ Teknologi yang Digunakan
 
 - HTML5
