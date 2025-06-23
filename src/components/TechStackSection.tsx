@@ -68,14 +68,6 @@ const TechStackSection = () => {
             </div>
           ))}
         </div>
-        
-        {/* Database Note */}
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-2 glass-effect rounded-full px-6 py-3 text-gray-300">
-            <Database className="w-5 h-5" />
-            <span className="text-sm">Tech stack managed through database</span>
-          </div>
-        </div>
       </div>
     </section>
   );

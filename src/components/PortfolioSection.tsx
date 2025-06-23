@@ -2,7 +2,7 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
-import { ExternalLink, Github, Database } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 
 const PortfolioSection = () => {
   const { data: portfolioItems, isLoading } = useQuery({
@@ -126,14 +126,6 @@ const PortfolioSection = () => {
               </div>
             </div>
           ))}
-        </div>
-        
-        {/* Database Note */}
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-2 glass-effect rounded-full px-6 py-3 text-gray-300">
-            <Database className="w-5 h-5" />
-            <span className="text-sm">Portfolio projects managed through database</span>
-          </div>
         </div>
       </div>
     </section>

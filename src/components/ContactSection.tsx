@@ -103,14 +103,6 @@ const ContactSection = () => {
                 </div>
               ))}
             </div>
-            
-            {/* Database Note */}
-            <div className="mt-8">
-              <div className="inline-flex items-center gap-2 glass-effect rounded-full px-6 py-3 text-gray-300">
-                <Database className="w-5 h-5" />
-                <span className="text-sm">Contact info managed through database</span>
-              </div>
-            </div>
           </div>
           
           {/* Decorative Element */}
