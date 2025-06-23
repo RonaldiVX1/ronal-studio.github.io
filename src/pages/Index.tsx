@@ -1,11 +1,39 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import HeroSection from '@/components/HeroSection';
+import AboutSection from '@/components/AboutSection';
+import TechStackSection from '@/components/TechStackSection';
+import PortfolioSection from '@/components/PortfolioSection';
+import ContactSection from '@/components/ContactSection';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="portfolio-gradient min-h-screen relative">
+      {/* Background overlay with uploaded image */}
+      <div 
+        className="fixed inset-0 opacity-30 mix-blend-overlay pointer-events-none"
+        style={{
+          backgroundImage: `url('/lovable-uploads/140513f6-5f91-43a4-be1b-9aa3589bc314.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      ></div>
+      
+      {/* Content */}
+      <div className="relative z-10">
+        <HeroSection />
+        <AboutSection />
+        <TechStackSection />
+        <PortfolioSection />
+        <ContactSection />
+      </div>
+      
+      {/* Floating elements */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <div className="floating-orb w-4 h-4 top-1/4 left-1/4 opacity-30" style={{ animationDelay: '1s' }}></div>
+        <div className="floating-orb w-6 h-6 top-3/4 left-1/3 opacity-20" style={{ animationDelay: '4s' }}></div>
+        <div className="floating-orb w-8 h-8 top-1/2 right-1/4 opacity-25" style={{ animationDelay: '2s' }}></div>
       </div>
     </div>
   );
