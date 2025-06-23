@@ -88,16 +88,39 @@
   }
 }
 
-/* Custom gradient background */
+/* Custom gradient background with background image */
 .portfolio-gradient {
-  background: linear-gradient(135deg, #6b46c1 0%, #3b82f6 50%, #1e40af 100%);
+  background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 25%, #ec4899 50%, #3b82f6 75%, #1e1b4b 100%);
   background-size: 400% 400%;
-  animation: gradientShift 8s ease infinite;
+  animation: gradientShift 10s ease infinite;
+  position: relative;
+}
+
+.portfolio-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  z-index: 1;
+}
+
+.portfolio-gradient > * {
+  position: relative;
+  z-index: 2;
 }
 
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
   100% { background-position: 0% 50%; }
 }
 
@@ -110,7 +133,7 @@
 .floating-orb {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(45deg, #ff007f, #7f00ff, #00bfff);
+  background: linear-gradient(45deg, #ec4899, #7c3aed, #3b82f6);
   filter: blur(1px);
   animation: float 6s ease-in-out infinite;
 }
