@@ -1,38 +1,58 @@
 
 import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { supabase } from '@/integrations/supabase/client';
 import { ExternalLink, Github, Database } from 'lucide-react';
 
 const PortfolioSection = () => {
-  const portfolioItems = [
-    {
-      id: 1,
-      title: 'E-Commerce Mobile App',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop',
-      tech: ['Flutter', 'Firebase', 'Dart'],
-      description: 'A comprehensive e-commerce application with real-time inventory, payment integration, and user authentication.'
-    },
-    {
-      id: 2,
-      title: 'Social Media Dashboard',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop',
-      tech: ['React', 'Node.js', 'MongoDB'],
-      description: 'Analytics dashboard for social media management with real-time data visualization and reporting features.'
-    },
-    {
-      id: 3,
-      title: 'Fitness Tracking App',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop',
-      tech: ['Swift', 'HealthKit', 'Core Data'],
-      description: 'iOS fitness application with workout tracking, progress monitoring, and health data integration.'
-    },
-    {
-      id: 4,
-      title: 'Restaurant Management',
-      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop',
-      tech: ['Kotlin', 'Room', 'Retrofit'],
-      description: 'Android application for restaurant order management with inventory tracking and customer management.'
+  const { data: portfolioItems, isLoading } = useQuery({
+    queryKey: ['portfolio-projects'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('portfolio_projects')
+        .select('*')
+        .order('display_order');
+      
+      if (error) throw error;
+      return data;
     }
-  ];
+  });
+
+  if (isLoading) {
+    return (
+      <section className="py-20 px-8 lg:px-16">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+              PORTFOLIO
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[...Array(4)].map((_, index) => (
+              <div key={index} className="glass-effect rounded-xl overflow-hidden animate-pulse">
+                <div className="h-48 bg-gray-400"></div>
+                <div className="p-6">
+                  <div className="h-6 bg-gray-400 rounded mb-3"></div>
+                  <div className="flex gap-2 mb-4">
+                    <div className="h-6 w-16 bg-gray-400 rounded-full"></div>
+                    <div className="h-6 w-20 bg-gray-400 rounded-full"></div>
+                  </div>
+                  <div className="h-4 bg-gray-400 rounded mb-2"></div>
+                  <div className="h-4 bg-gray-400 rounded mb-4"></div>
+                  <div className="flex gap-3">
+                    <div className="h-10 w-24 bg-gray-400 rounded"></div>
+                    <div className="h-10 w-20 bg-gray-400 rounded"></div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-20 px-8 lg:px-16">
@@ -45,14 +65,14 @@ const PortfolioSection = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {portfolioItems.map((item) => (
+          {portfolioItems?.map((item) => (
             <div 
               key={item.id} 
               className="glass-effect rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 group"
             >
               <div className="relative overflow-hidden">
                 <img 
-                  src={item.image} 
+                  src={item.image_url || 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop'} 
                   alt={item.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                 />
@@ -64,7 +84,7 @@ const PortfolioSection = () => {
                 
                 {/* Tech Stack Tags */}
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {item.tech.map((tech, index) => (
+                  {item.tech_stack?.map((tech, index) => (
                     <span 
                       key={index}
                       className="px-3 py-1 bg-purple-500/30 text-purple-200 text-sm rounded-full border border-purple-400/30"
@@ -80,14 +100,28 @@ const PortfolioSection = () => {
                 
                 {/* Action Buttons */}
                 <div className="flex gap-3">
-                  <button className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors text-sm">
-                    <ExternalLink className="w-4 h-4" />
-                    View Live
-                  </button>
-                  <button className="flex items-center gap-2 px-4 py-2 border border-purple-400/30 hover:border-purple-400 text-purple-200 rounded-lg transition-colors text-sm">
-                    <Github className="w-4 h-4" />
-                    Code
-                  </button>
+                  {item.live_url && (
+                    <a
+                      href={item.live_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors text-sm"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      View Live
+                    </a>
+                  )}
+                  {item.github_url && (
+                    <a
+                      href={item.github_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 border border-purple-400/30 hover:border-purple-400 text-purple-200 rounded-lg transition-colors text-sm"
+                    >
+                      <Github className="w-4 h-4" />
+                      Code
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -98,7 +132,7 @@ const PortfolioSection = () => {
         <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-2 glass-effect rounded-full px-6 py-3 text-gray-300">
             <Database className="w-5 h-5" />
-            <span className="text-sm">Portfolio projects can be managed through database</span>
+            <span className="text-sm">Portfolio projects managed through database</span>
           </div>
         </div>
       </div>
