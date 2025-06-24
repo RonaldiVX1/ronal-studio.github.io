@@ -56,7 +56,7 @@ Website ini dibangun sebagai representasi profesional saya secara online, tempat
    - `VITE_SUPABASE_ANON_KEY`: Anon key dari Supabase project Anda
 7. Push perubahan ke branch main untuk trigger deployment otomatis
 
-## 📝 Fitur
+## 📝 Fitur  
 
 - ✅ Responsive design
 - ✅ Modern UI dengan Tailwind CSS
