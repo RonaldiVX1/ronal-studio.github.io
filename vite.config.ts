@@ -4,6 +4,11 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig({
-  plugins: [react()],
-  base: '/ronal-studio.github.io/', // tambahkan ini
-})
+  plugins: [react(), componentTagger()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"), // Alias @ jadi src/
+    },
+  },
+  base: "/ronal-studio.github.io/", // agar path cocok di GitHub Pages
+});
