@@ -18,7 +18,7 @@ Website ini dibangun sebagai representasi profesional saya secara online, tempat
 - Supabase (Database)
 - GitHub Pages (untuk deployment)
 
-## 🚀 Cara Menjalankan Lokal
+## 🚀 Cara Menjalankan Lokal 
 
 1. Clone repository ini:
    ```bash
